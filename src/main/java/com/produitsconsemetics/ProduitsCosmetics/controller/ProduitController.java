@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -54,6 +55,22 @@ public class ProduitController {
 		Optional<Produit> produitOptional = produitRepo.findById(id);
 		if(produitOptional.isPresent()) {
 			return new ResponseEntity<>(produitOptional.get(), HttpStatus.OK);
+		}else {
+			return new ResponseEntity<>("no product find"+id,HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@PutMapping("/produits/{id}")
+	public ResponseEntity<?> UpdateProduit(@PathVariable("id") String id, @RequestBody Produit produit){
+		Optional<Produit> produitOptional = produitRepo.findById(id);
+		if(produitOptional.isPresent()) {
+			Produit produitsave = produitOptional.get();
+			produitsave.setTitle(produit.getTitle() != null ? produit.getTitle():produitsave.getTitle());
+			produitsave.setDescription(produit.getDescription() != null ? produit.getDescription():produitsave.getDescription());
+			produitsave.setPrix(produit.getPrix() != null ? produit.getPrix():produitsave.getPrix());
+			produitsave.setIconproduit(produit.getIconproduit() != null ? produit.getIconproduit():produitsave.getIconproduit());
+            produitRepo.save(produitsave);
+			return new ResponseEntity<>(produitsave, HttpStatus.OK);
 		}else {
 			return new ResponseEntity<>("no product find"+id,HttpStatus.NOT_FOUND);
 		}
