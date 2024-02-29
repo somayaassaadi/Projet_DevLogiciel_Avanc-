@@ -50,7 +50,7 @@ public class ProduitController {
 			
 		}
 	}
-	
+	//fin product by id
 	@GetMapping("/produits/{id}")
 	public ResponseEntity<?> findProduit(@PathVariable("id") String id){
 		Optional<Produit> produitOptional = produitRepo.findById(id);
@@ -60,6 +60,7 @@ public class ProduitController {
 			return new ResponseEntity<>("no product find"+id,HttpStatus.NOT_FOUND);
 		}
 	}
+	//find product by price
 	@GetMapping("/produits/price/{price}")
 	public ResponseEntity<?> findProduitByPrice(@PathVariable("price") double price) {
 	    List<Produit> produits = produitRepo.findByPrix(price);
@@ -70,7 +71,17 @@ public class ProduitController {
 	        return new ResponseEntity<>("No products found with price: " + price, HttpStatus.NOT_FOUND);
 	    }
 	}
+	//find product by name
+	@GetMapping("/produits/title/{title}")
+	public ResponseEntity<?> findProduitByTitle(@PathVariable("title") String title) {
+	    List<Produit> produits = produitRepo.findByTitle(title);
 
+	    if (!produits.isEmpty()) {
+	        return new ResponseEntity<>(produits, HttpStatus.OK);
+	    } else {
+	        return new ResponseEntity<>("No products found with price: " + title, HttpStatus.NOT_FOUND);
+	    }
+	}
 	@PutMapping("/produits/{id}")
 	public ResponseEntity<?> UpdateProduit(@PathVariable("id") String id, @RequestBody Produit produit){
 		Optional<Produit> produitOptional = produitRepo.findById(id);

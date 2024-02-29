@@ -10,6 +10,8 @@ import com.produitsconsemetics.ProduitsCosmetics.model.Produit;
 public interface ProduitRepository extends MongoRepository<Produit, String> {
 	
     List<Produit> findByPrix(double prix);
-	
+    List<Produit> findByTitle(String title);
+
+
     
 }
