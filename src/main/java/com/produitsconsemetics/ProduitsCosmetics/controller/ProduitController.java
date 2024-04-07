@@ -20,9 +20,14 @@ import org.springframework.web.bind.annotation.RestController;
 import com.produitsconsemetics.ProduitsCosmetics.model.Produit;
 import com.produitsconsemetics.ProduitsCosmetics.repository.ProduitRepository;
 
+import lombok.AllArgsConstructor;
+
 
 @RestController
+@AllArgsConstructor
 public class ProduitController {
+	 //private final AuthUserRepository userRepository = null;
+	// private final PasswordEncoder passwordEncoder = null;
 	
 	@Autowired
 	private ProduitRepository produitRepo;
@@ -108,6 +113,18 @@ public class ProduitController {
 			return new ResponseEntity<>(e.getMessage(),HttpStatus.NOT_FOUND);
 		}
 	}
-	
+	//authentification
+	 /*  @PostMapping("/register")
+	    public ResponseEntity registerUser(@RequestBody AuthUser user){
+	        try {
+	            if (userRepository.findByUsername(user.getUsername()).isPresent())
+	                return ResponseEntity.status(HttpStatus.CONFLICT).body("Username already taken. Please try again");
+	            user.setPassword(passwordEncoder.encode(user.getPassword()));
+	            AuthUser save = userRepository.save(user);
+	            return ResponseEntity.ok(HttpStatus.CREATED);
+	        } catch (Exception e){
+	            return ResponseEntity.internalServerError().body(e.getMessage());
+	        }
+	    }*/
 
 }
