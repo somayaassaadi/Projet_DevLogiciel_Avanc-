@@ -1,0 +1,40 @@
+<style>
+  .navbar {
+    margin-bottom: 100px; 
+  }
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" style="color:white;">Les Produits Cosmetics</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+</nav>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-6">
+      <form (ngSubmit)="login()"> <!-- Utilisation de ngSubmit pour écouter la soumission du formulaire -->
+        <!-- Email input -->
+        <div class="form-group">
+          <label for="form2Example1">Email address</label>
+          <input type="email" id="form2Example1" class="form-control form-control-sm" [(ngModel)]="email" name="email" /> <!-- Utilisation de ngModel pour lier la valeur de l'entrée à la variable email -->
+        </div>
+
+        <!-- Password input -->
+        <div class="form-group">
+          <label for="form2Example2">Mot de passe</label>
+          <input type="password" id="form2Example2" class="form-control form-control-sm" [(ngModel)]="password" name="password" /> <!-- Utilisation de ngModel pour lier la valeur de l'entrée à la variable password -->
+        </div>
+
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary btn-block mb-4">Se Connecter</button> <!-- Utilisation de type="submit" pour déclencher la soumission du formulaire -->
+
+        <!-- Register link -->
+        <div class="text-center">
+          <p> <a href="/register">Inscription</a></p>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
