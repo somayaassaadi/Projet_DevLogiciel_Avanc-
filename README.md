@@ -43,7 +43,7 @@ Diagramme de séquence consulter les produits: <br /><br />
 Diagramme de classe:<br /><br />
 ![image](https://github.com/somayaassaadi/Projet_DevLogiciel_Avanc-/assets/103968938/9874dc06-f892-43ae-a0b4-aa25353fb8e7)<br /><br />
 
-##Architecture du projet<br /><br />
+## Architecture du projet<br /><br />
 ![image](https://github.com/somayaassaadi/Projet_DevLogiciel_Avanc-/assets/103968938/f52dd370-ac76-40cf-a12c-f1cdee985b02)
 
 
