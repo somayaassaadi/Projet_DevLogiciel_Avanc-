@@ -35,13 +35,17 @@ La partie client de l'application est développée en utilisant Angular, un fram
 
 ## Analyse et Conception
  Diagramme de cas d'utilisation:<br />
-![image](https://github.com/somayaassaadi/Projet_DevLogiciel_Avanc-/assets/103968938/9a665424-2c7a-4d39-b32a-5021b2173a1d)<br />
+![image](https://github.com/somayaassaadi/Projet_DevLogiciel_Avanc-/assets/103968938/9a665424-2c7a-4d39-b32a-5021b2173a1d)<br /><br />
 Diagramme de séquence ajouter un produit: <br />
-![image](https://github.com/somayaassaadi/Projet_DevLogiciel_Avanc-/assets/103968938/0ecfa92d-c84a-4d72-bd38-728c7d27db91)<br />
+![image](https://github.com/somayaassaadi/Projet_DevLogiciel_Avanc-/assets/103968938/0ecfa92d-c84a-4d72-bd38-728c7d27db91)<br /><br />
 Diagramme de séquence consulter les produits: <br />
-![image](https://github.com/somayaassaadi/Projet_DevLogiciel_Avanc-/assets/103968938/c92cf034-5d16-4cfb-9eb8-fa36afaf2481)<br />
+![image](https://github.com/somayaassaadi/Projet_DevLogiciel_Avanc-/assets/103968938/c92cf034-5d16-4cfb-9eb8-fa36afaf2481)<br /><br />
 Diagramme de classe:<br />
-![image](https://github.com/somayaassaadi/Projet_DevLogiciel_Avanc-/assets/103968938/9874dc06-f892-43ae-a0b4-aa25353fb8e7)
+![image](https://github.com/somayaassaadi/Projet_DevLogiciel_Avanc-/assets/103968938/9874dc06-f892-43ae-a0b4-aa25353fb8e7)<br /><br />
+
+##Architecture du projet<br />
+![image](https://github.com/somayaassaadi/Projet_DevLogiciel_Avanc-/assets/103968938/f52dd370-ac76-40cf-a12c-f1cdee985b02)
+
 
 
 
