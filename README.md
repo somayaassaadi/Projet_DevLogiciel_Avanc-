@@ -6,11 +6,11 @@ Ce projet vise à créer une application de gestion des produits cosmétiques, p
 L'application comprend également un système d'authentification pour assurer la sécurité des utilisateurs.
 
 ## Partie Serveur (Spring Boot)
--GET : Récupère la liste complète des produits cosmétiques.
--GET By Id: Récupère les détails d'un produit spécifique.
--POST: Ajoute un nouveau produit à la base de données.
--PUT: Met à jour les informations d'un produit existant.
--DELETE : Supprime un produit de la base de données.
+-GET : Récupère la liste complète des produits cosmétiques.<br />
+-GET By Id: Récupère les détails d'un produit spécifique.<br />
+-POST: Ajoute un nouveau produit à la base de données.<br />
+-PUT: Met à jour les informations d'un produit existant.<br />
+-DELETE : Supprime un produit de la base de données.<br />
 
 ## Utilisation de MongoDB dans la Partie Serveur
 Pour la persistance des données, ce projet utilise MongoDB, une base de données NoSQL flexible et évolutive.
