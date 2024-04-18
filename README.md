@@ -36,5 +36,14 @@ La partie client de l'application est développée en utilisant Angular, un fram
 ## Analyse et Conception
  Diagramme de cas d'utilisation:<br />
 ![image](https://github.com/somayaassaadi/Projet_DevLogiciel_Avanc-/assets/103968938/9a665424-2c7a-4d39-b32a-5021b2173a1d)
+Diagramme de séquence ajouter un produit: <br />
+![image](https://github.com/somayaassaadi/Projet_DevLogiciel_Avanc-/assets/103968938/8220d450-88d7-4d72-baf6-a98a531bb09f)
+Diagramme de séquence consulter les produits: <br />
+![image](https://github.com/somayaassaadi/Projet_DevLogiciel_Avanc-/assets/103968938/5c0aa127-1866-478c-acde-f2874223ef08)
+Diagramme de classe:<br />
+![image](https://github.com/somayaassaadi/Projet_DevLogiciel_Avanc-/assets/103968938/fd25d735-4626-424a-bf37-0f738cf905c8)
+
+
+
 
 
