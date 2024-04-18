@@ -19,18 +19,22 @@ Pour la persistance des données, ce projet utilise MongoDB, une base de donnée
 La partie client de l'application est développée en utilisant Angular, un framework JavaScript pour la création d'applications web.
 
 ## Installation et utilisation d’Angular:
-1-prérequis:
-   *Node.js
-   *Angular CLI: nmp install -g @angular/cli
-2-lancement du projet:
-   *la comande: ng serve
-3-Accès au projet:
-   *http://localhost:4200/
+1-prérequis:<br />
+   *Node.js<br />
+   *Angular CLI: nmp install -g @angular/cli<br />
+2-lancement du projet:<br />
+   *la comande: ng serve<br />
+3-Accès au projet:<br />
+   *http://localhost:4200/<br />
 
 ## Installation et utilisation de Spring boot
-1-prérequis:
-   *JAVA
-2-Accès au projet:
-   *http://localhost:8080
+1-prérequis:<br />
+   *JAVA<br />
+2-Accès au projet:<br />
+   *http://localhost:8080<br />
+
+## Analyse et Conception
+ Diagramme de cas d'utilisation:<br />
+![image](https://github.com/somayaassaadi/Projet_DevLogiciel_Avanc-/assets/103968938/9a665424-2c7a-4d39-b32a-5021b2173a1d)
 
 
