@@ -11,33 +11,34 @@
          </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
-         <input type="search" (ngModelChange)="searchEmployees(key.value)" #key="ngModel" ngModel
+         <input type="search" (ngModelChange)="searchProduit(key.value)" #key="ngModel" ngModel
           name="key" id="searchName" class="form-control mr-sm-2" placeholder="Rechercher produit..." required>
       </form>
- 
+      <a class="nav-link logout-button text-white" (click)="logout()">Se déconnecter</a>
+
    </div>
  </nav>
  <div  class="container">
 
  <div class="container" id="main-container">
  <div class="row">
-    <div *ngFor="let employee of employees" class="col-md-6 col-xl-4">
-      <div class="card m-b-30" (click)="showProductDetails(employee)" data-toggle="modal" data-target="#productModal" >
+    <div *ngFor="let produit of Produit" class="col-md-6 col-xl-4">
+      <div class="card m-b-30" (click)="showProductDetails(produit)" data-toggle="modal" data-target="#productModal" >
         <div class="card-body">
           <div class="row">
             <div class="col-4">
-              <a href=""><img src="{{employee?.iconproduit}}" alt="" class="img-fluid rounded-circle"></a>
+              <a href=""><img src="{{produit?.iconproduit}}" alt="" class="img-fluid rounded-circle"></a>
             </div>
             <div class="col-8">
-              <h5 class="mb-4" style="white-space: nowrap;">{{employee.title}}</h5>
-              <p class="m-0">{{employee.prix}}€</p>
+              <h5 class="mb-4" style="white-space: nowrap;">{{produit.title}}</h5>
+              <p class="m-0">{{produit.prix}}€</p>
             </div>
           </div>
         </div>
         <div class="card-body">
          <div class="float-right btn-group btn-group-sm">
-           <a (click)="onOpenModal(employee, 'edit'); $event.stopPropagation()" class="btn btn-primary tooltips" data-placement="top" data-original-title="Edit"><i class="fa fa-pencil"></i> </a>
-           <a (click)="onOpenModal(employee, 'delete'); $event.stopPropagation()" class="btn btn-secondary tooltips" data-placement="top" data-original-title="Delete"><i class="fa fa-times"></i></a>
+           <a (click)="onOpenModal(produit, 'edit'); $event.stopPropagation()" class="btn btn-primary tooltips" data-placement="top" data-original-title="Edit"><i class="fa fa-pencil"></i> </a>
+           <a (click)="onOpenModal(produit, 'delete'); $event.stopPropagation()" class="btn btn-secondary tooltips" data-placement="top" data-original-title="Delete"><i class="fa fa-times"></i></a>
          </div>
         </div>
       </div>
@@ -83,7 +84,7 @@
            </button>
         </div>
         <div class="modal-body">
-           <form #addForm="ngForm" (ngSubmit)="onAddEmloyee(addForm)">
+           <form #addForm="ngForm" (ngSubmit)="onAddProduit(addForm)">
            <div class="form-group">
               <label for="title">Title</label>
               <input type="text" ngModel name="title" class="form-control" id="title" placeholder="Title" required>
@@ -117,7 +118,7 @@
    <div class="modal-dialog" role="document">
       <div class="modal-content">
          <div class="modal-header">
-            <h5 class="modal-title" id="updateEmployeeModalLabel">Modifier Produit {{editEmployee.title}}</h5>
+            <h5 class="modal-title" id="updateEmployeeModalLabel">Modifier Produit {{editproduit.title}}</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
             </button>
@@ -126,23 +127,23 @@
             <form #editForm="ngForm">
                <div class="form-group">
                   <label for="title">Title</label>
-                  <input type="text" ngModel="{{editEmployee.title}}" name="title" class="form-control" id="title" aria-describedby="emailHelp" placeholder="Name">
+                  <input type="text" ngModel="{{editproduit.title}}" name="title" class="form-control" id="title" aria-describedby="emailHelp" placeholder="Name">
                </div>
                <div class="form-group">
                   <label for="description">Description</label>
-                  <input type="text" ngModel="{{editEmployee.description}}" name="description" class="form-control" id="description" placeholder="Description">
+                  <input type="text" ngModel="{{editproduit.description}}" name="description" class="form-control" id="description" placeholder="Description">
                </div>
                <div class="form-group">
                   <label for="prix">Prix</label>
-                  <input type="text" ngModel="{{editEmployee.prix}}" name="prix" class="form-control" id="prix" placeholder="Prix">
+                  <input type="text" ngModel="{{editproduit.prix}}" name="prix" class="form-control" id="prix" placeholder="Prix">
                </div>
                <div class="form-group">
                   <label for="iconproduit">Image URL</label>
-                  <input type="text" ngModel="{{editEmployee.iconproduit}}" name="iconproduit" class="form-control" id="iconproduit" placeholder="Image URL">
+                  <input type="text" ngModel="{{editproduit.iconproduit}}" name="iconproduit" class="form-control" id="iconproduit" placeholder="Image URL">
                </div>
                <div class="modal-footer">
                   <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">Close</button>
-                  <button (click)="onUpdateEmloyee(editEmployee.id,editForm.value)" data-dismiss="modal" class="btn btn-primary" >Save changes</button>
+                  <button (click)="onUpdateProduit(editproduit.id,editForm.value)" data-dismiss="modal" class="btn btn-primary" >Save changes</button>
                </div>
             </form>
          </div>
@@ -160,10 +161,10 @@
             </button>
          </div>
          <div class="modal-body">
-            <p>Are you sure you want to delete product {{deleteEmployee.title}}?</p>
+            <p>Are you sure you want to delete product {{deleteProduit.title}}?</p>
             <div class="modal-footer">
                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-               <button (click)="onDeleteEmloyee(deleteEmployee.id)" class="btn btn-danger" data-dismiss="modal">Yes</button>
+               <button (click)="onDeleteProduit(deleteProduit.id)" class="btn btn-danger" data-dismiss="modal">Yes</button>
             </div>
          </div>
       </div>

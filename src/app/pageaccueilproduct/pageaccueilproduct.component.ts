@@ -3,6 +3,8 @@ import { Produit } from '../produit';
 import { ProduitsService } from '../produits.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-pageaccueilproduct',
@@ -14,23 +16,23 @@ import { NgForm } from '@angular/forms';
 export class PageaccueilproductComponent  implements OnInit{
   showLoginForm: boolean = false;
   title = 'projet_employee_front';
-  public employees!: Produit[] ;
-  public editEmployee!: Produit;
-  public deleteEmployee!: Produit;
+  public Produit!: Produit[] ;
+  public editproduit!: Produit;
+  public deleteProduit!: Produit;
 
-  constructor(private employeeService: ProduitsService){}
+  constructor(private produitService: ProduitsService, private router: Router){}
   selectedProduct: any; 
 
 
   ngOnInit() {
-    this.getEmployees();
+    this.getProducts();
   }
 
-  public getEmployees(): void {
-    this.employeeService.getProduits().subscribe(
+  public getProducts(): void {
+    this.produitService.getProduits().subscribe(
       (response: Produit[]) => {
-        this.employees = response;
-        console.log(this.employees);
+        this.Produit = response;
+        console.log(this.Produit);
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
@@ -38,12 +40,12 @@ export class PageaccueilproductComponent  implements OnInit{
     );
   }
 
-  public onAddEmloyee(addForm: NgForm): void {
+  public onAddProduit(addForm: NgForm): void {
     document!.getElementById('add-employee-form')!.click();
-    this.employeeService.addProduit(addForm.value).subscribe(
+    this.produitService.addProduit(addForm.value).subscribe(
       (response: Produit) => {
         console.log(response);
-        this.getEmployees();
+        this.getProducts();
         addForm.reset();
       },
       (error: HttpErrorResponse) => {
@@ -64,8 +66,8 @@ export class PageaccueilproductComponent  implements OnInit{
       }
     );
   }*/
-  public onUpdateEmloyee(id: string, produit: Produit): void {
-    this.employeeService.updateProduit(id, produit)
+  public onUpdateProduit(id: string, produit: Produit): void {
+    this.produitService.updateProduit(id, produit)
       .subscribe(
         response => {
           console.log(response);
@@ -78,11 +80,11 @@ export class PageaccueilproductComponent  implements OnInit{
       );
   }
 
-  public onDeleteEmloyee(employeeId: string): void {
-    this.employeeService.deleteProduit(employeeId).subscribe(
+  public onDeleteProduit(produitId: string): void {
+    this.produitService.deleteProduit(produitId).subscribe(
       (response: void) => {
         console.log(response);
-        this.getEmployees();
+        this.getProducts();
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
@@ -90,23 +92,23 @@ export class PageaccueilproductComponent  implements OnInit{
     );
   }
 
-  public searchEmployees(key: string): void {
+  public searchProduit(key: string): void {
     console.log(key);
     const results: Produit[] = [];
-    for (const employee of this.employees) {
-      if (employee.title.toLowerCase().indexOf(key.toLowerCase()) !== -1
-      || employee.description.toLowerCase().indexOf(key.toLowerCase()) !== -1
+    for (const produit of this.Produit) {
+      if (produit.title.toLowerCase().indexOf(key.toLowerCase()) !== -1
+      || produit.description.toLowerCase().indexOf(key.toLowerCase()) !== -1
       ) {
-        results.push(employee);
+        results.push(produit);
       }
     }
-    this.employees = results;
+    this.Produit = results;
     if (results.length === 0 || !key) {
-      this.getEmployees();
+      this.getProducts();
     }
   }
 
-  public onOpenModal(employee: Produit, mode: string): void {
+  public onOpenModal(produit: Produit, mode: string): void {
     const container = document.getElementById('main-container');
     const button = document.createElement('button');
     button.type = 'button';
@@ -116,11 +118,11 @@ export class PageaccueilproductComponent  implements OnInit{
       button.setAttribute('data-target', '#addEmployeeModal');
     }
     if (mode === 'edit') {
-      this.editEmployee = employee;
+      this.editproduit = produit;
       button.setAttribute('data-target', '#updateEmployeeModal');
     }
     if (mode === 'delete') {
-      this.deleteEmployee = employee;
+      this.deleteProduit = produit;
       button.setAttribute('data-target', '#deleteEmployeeModal');
     }
     container?.appendChild(button);
@@ -148,6 +150,11 @@ export class PageaccueilproductComponent  implements OnInit{
   }
   onLoginFormToggle() {
     this.showLoginForm = !this.showLoginForm;
+  }
+
+  logout() {
+   
+    this.router.navigate(['']);
   }
 
 }
